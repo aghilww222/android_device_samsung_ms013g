@@ -8,8 +8,8 @@
 
 set -e
 
-export DEVICE=s3ve3gxx
-export DEVICE_COMMON=s3ve3g-common
+export DEVICE=ms013g
+export DEVICE_COMMON=ms01-common
 export VENDOR=samsung
 
 # Load extract_utils and do some sanity checks

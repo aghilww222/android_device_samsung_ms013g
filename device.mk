@@ -18,21 +18,20 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/samsung/s3ve3gxx/s3ve3gxx-vendor.mk)
+$(call inherit-product, vendor/samsung/ms013g/ms013g-vendor.mk)
 
-# Camera
-PRODUCT_PACKAGES += \
-    libshim_imx175
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# NFC
-# $(call inherit-product, device/samsung/s3ve3g-common/nfc/pn547/product.mk)
+# Radio/RIL
+$(call inherit-product, device/samsung/ms01-common/radio/dual/product.mk)
+
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
-# common s3ve3g
-$(call inherit-product, device/samsung/s3ve3g-common/s3ve3g.mk)
+# common ms01
+$(call inherit-product, device/samsung/ms01-common/ms01.mk)
+

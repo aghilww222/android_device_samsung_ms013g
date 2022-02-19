@@ -13,26 +13,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from common s3ve3g
-include device/samsung/s3ve3g-common/BoardConfigCommon.mk
+# inherit from common ms01
+include device/samsung/ms01-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/samsung/s3ve3gxx
+DEVICE_PATH := device/samsung/ms013g
 
-# Shims
-TARGET_LD_SHIM_LIBS += \
-        /system/vendor/lib/libmmcamera_imx175.so|libshim_imx175.so
 
 # Kernel
-TARGET_KERNEL_CONFIG := lineage_s3ve3gxx_defconfig
-
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_s3ve3g
-
-# NFC
-# include $(COMMON_PATH)/nfc/pn547/board.mk
+TARGET_KERNEL_CONFIG := lineage_ms013g_defconfig
 
 # Radio/RIL
-include $(COMMON_PATH)/radio/single/board.mk
+include $(COMMON_PATH)/radio/dual/board.mk
 
 # inherit from the proprietary version
-include vendor/samsung/s3ve3gxx/BoardConfigVendor.mk
+include vendor/samsung/ms013g/BoardConfigVendor.mk
+
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/minimal_sepolicy
+SELINUX_IGNORE_NEVERALLOWS := true
+
+#TARGET_PREBUILT_KERNEL := device/samsung/ms013g/prebuilt/zImage
